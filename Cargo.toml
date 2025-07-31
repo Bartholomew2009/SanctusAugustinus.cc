@@ -1,0 +1,27 @@
+[package]
+name = "SanctusAugustinus"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bevy = { version = "0.16.1", features = ["jpeg","wayland"] }
+bevy_egui = "0.35.1"
+bevy_render = "0.16.1"
+image = "0.25.6"
+log = { version = "0.4.27", features = ["max_level_debug", "release_max_level_warn"] }
+once_cell = "1.21.3"
+winit = "0.30.12"
+
+# Enable a small amount of optimization in the dev profile.
+[profile.dev]
+opt-level = 1
+
+# Enable a large amount of optimization in the dev profile for dependencies.
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+opt-level = 'z'
+lto = true
+codegen-units = 1
+strip = "debuginfo"

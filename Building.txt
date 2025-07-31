@@ -1,0 +1,5 @@
+For Web:
+cargo run --release --target wasm32-unknown-unknown
+
+For Desktop:
+cargo run 
